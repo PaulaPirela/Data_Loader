@@ -1,48 +1,39 @@
-Concurrent Downloads Benchmark
-
+## Concurrent Downloads Benchmark
 Este proyecto evalúa diferentes enfoques de concurrencia en Python para la descarga masiva de imágenes a partir de datos en CSV.
 
-Métodos implementados
+# Métodos implementados
 
-Multiprocessing: procesos en paralelo.
+1. Multiprocessing: procesos en paralelo.
+2. Threading: hilos concurrentes.
+3. Asyncio: asincronía basada en corrutinas.
 
-Threading: hilos concurrentes.
+# Estructura:
 
-Asyncio: asincronía basada en corrutinas.
+* multiprocessing_script.py: implementación con ProcessPoolExecutor.
 
-Estructura
+* threading_script.py: implementación con ThreadPoolExecutor.
 
-multiprocessing_script.py: implementación con ProcessPoolExecutor.
+* asyncio_script.py: implementación con aiohttp y asyncio.
 
-threading_script.py: implementación con ThreadPoolExecutor.
+* benchmark.py: ejecuta los tres métodos y recolecta métricas.
 
-asyncio_script.py: implementación con aiohttp y asyncio.
+* analytics.py: análisis descriptivo y visualización de resultados.
 
-benchmark.py: ejecuta los tres métodos y recolecta métricas.
+* notebooks/: notebooks para análisis y visualización.
 
-analytics.py: análisis descriptivo y visualización de resultados.
+# Resultados:
 
-notebooks/: notebooks para análisis y visualización.
+* Multiprocessing no es adecuado para tareas I/O-bound.
 
-Resultados
+* Threading ofrece la mejor velocidad.
 
-Multiprocessing no es adecuado para tareas I/O-bound.
+* Asyncio logra un buen balance al reducir el consumo de CPU con tiempos competitivos.
 
-Threading ofrece la mejor velocidad.
+# Requisitos
 
-Asyncio logra un buen balance al reducir el consumo de CPU con tiempos competitivos.
+1. Python 3.9+
 
-Requisitos
-
-Python 3.9+
-
-Dependencias: requests, aiohttp, aiofiles, psutil, pandas, matplotlib, seaborn
-
-Ejecución
-
-Colocar los CSV en la carpeta definida en benchmark.py.
-
-Ejecutar el benchmark:
+# Dependencias: requests, aiohttp, aiofiles, psutil, pandas, matplotlib, seaborn
 
 python benchmark.py
 
