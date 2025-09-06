@@ -1,14 +1,52 @@
-# Computer vision data loader
+Concurrent Downloads Benchmark
 
-In this lab your task is to produce images as quickly as possible, so that they are available to train a machine learning model. To achieve it, you will need to learn about Iterators and concurrency in Python. Moreover, you will have a chance to experiment with the cost of reading from the local disk, a remote server and memory.
+Este proyecto evalúa diferentes enfoques de concurrencia en Python para la descarga masiva de imágenes a partir de datos en CSV.
 
-If you need a refresher on the topics needed to solve the challenge, read:
+Métodos implementados
 
-* https://realpython.com/python-concurrency/
-* https://realpython.com/python-iterators-iterables/
-* https://realpython.com/intro-to-python-threading/
+Multiprocessing: procesos en paralelo.
 
-Or even practice a little bit first with: https://github.com/open-homeworks/concurrent-downloads
+Threading: hilos concurrentes.
+
+Asyncio: asincronía basada en corrutinas.
+
+Estructura
+
+multiprocessing_script.py: implementación con ProcessPoolExecutor.
+
+threading_script.py: implementación con ThreadPoolExecutor.
+
+asyncio_script.py: implementación con aiohttp y asyncio.
+
+benchmark.py: ejecuta los tres métodos y recolecta métricas.
+
+analytics.py: análisis descriptivo y visualización de resultados.
+
+notebooks/: notebooks para análisis y visualización.
+
+Resultados
+
+Multiprocessing no es adecuado para tareas I/O-bound.
+
+Threading ofrece la mejor velocidad.
+
+Asyncio logra un buen balance al reducir el consumo de CPU con tiempos competitivos.
+
+Requisitos
+
+Python 3.9+
+
+Dependencias: requests, aiohttp, aiofiles, psutil, pandas, matplotlib, seaborn
+
+Ejecución
+
+Colocar los CSV en la carpeta definida en benchmark.py.
+
+Ejecutar el benchmark:
+
+python benchmark.py
 
 
-If you are ready, follow along the `experiment.ipynb` file and come up with the best possible data loader, one that optimizes for fast image availability, as well as low memory requirements.
+Analizar resultados:
+
+python analytics.py
